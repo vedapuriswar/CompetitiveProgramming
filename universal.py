@@ -3,58 +3,13 @@
         self.value = value
         self.left = left
         self.right = right
-
-node_right_left1 = Node(1, Node(1), Node(1))
-node_right1 = Node(0, node_right_left1, Node(0))
-tree1 = Node(0, Node(1), node_right1)
-# tree1 looks like:
-#         0
-#        / \
-#       1   0
-#          / \
-#         1   0
-#        / \
-#       1   1
-
-node_right_right2 = Node(4, None, Node(4))
-node_right2 = Node(4, Node(4), node_right_right2)
-tree2 = Node(3, Node(2), node_right2)
-# tree2 looks like:
-#         3
-#        / \
-#       2   4
-#          / \
-#         4   4
-#              \
-#               4
-
-node_right_right3 = Node(3, None, Node(2))
-node_right3 = Node(3, Node(3), node_right_right3)
-tree3 = Node(3, Node(3), node_right3)
-# tree3 looks like:
-#         3
-#        / \
-#       3   3
-#          / \
-#         3   3
-#              \
-#               2
-
-# A function for going through the tree in order.
-# Use this to test if we got the right tree.
+       
 def in_order(root):
     if root.left:
         in_order(root.left)
     print(str(root.value) + ', ', end='')
     if root.right:
         in_order(root.right)
-
-in_order(tree1)
-print('')
-in_order(tree2)
-print('')
-in_order(tree3)
-print('')
 
 def is_unival(root):
     if root is None:
@@ -99,12 +54,4 @@ def helper(root):
     else:
         return left_count + right_count, False
 
-print(count_univals(tree1), 'should be 5')
-print(count_univals(tree2), 'should be 5')
-print(count_univals(tree3), 'should be 3')
-print(count_univals(None), 'should be 0')
 
-print(count_univals2(tree1), 'should be 5')
-print(count_univals2(tree2), 'should be 5')
-print(count_univals2(tree3), 'should be 3')
-print(count_univals2(None), 'should be 0')
